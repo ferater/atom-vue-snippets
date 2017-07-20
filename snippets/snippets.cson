@@ -1,38 +1,25 @@
 ".text.html.vue":
-  "Component include":
-    "prefix": "component"
-    "body": "<${1:componentName}>$2</${1:componentName}>"
-    "description": "Use a component in a template file"
-    "descriptionMoreURL": "https://vuejs.org/v2/guide/components.html"
-  "Router View":
-    "prefix": "router-view"
-    "body": "<router-view name=\"${1:routeName}\">$2</router-view>"
-    "description": "Vuejs router-view component"
-    "descriptionMoreURL": "https://router.vuejs.org/en/api/router-view.html"
-  'Router Link':
-    'prefix': 'router-link'
-    'body': '<router-link :to=\"{ name: \'${1:routeName}\', params: { ${2:property}: ${3:value}}}\">$4</router-link>'
-    'description': 'Vuejs router-link component with named route'
-    'descriptionMoreURL': 'https://router.vuejs.org/en/api/router-link.html'
   "Vue Component template":
-    "prefix": "template"
+    "prefix": "vtemplate"
     "body": """
       <template>
-        <div id="$1">
-
+        <div class="$1">
+          $2
         </div>
       </template>
-      <script>
-      export default {
-        name: "$1",
-        data: function data() {
-          return {
 
-          }
+      <script>
+        export default {
+          name: '$3',
+
+          $4
         }
-      }
       </script>
-      <style${2: lang="${3:scss}"}>
+
+      <style ${6:lang="${7:css}"} scoped>
+        .$1 {
+          $8
+        }$9
       </style>
     """
     "description": "Single file component template"
@@ -44,31 +31,37 @@
     'body': 'v-for=\"${1:elem} in ${2:elemArray}\" :key=\"${1:elem}.${3:key}\"'
     'description': 'Vuejs binding for list rendering'
     'descriptionMoreURL': 'https://vuejs.org/v2/guide/list.html#v-for'
+
   'v-if':
     'prefix': 'v-if'
     'body': 'v-if=\"${1:condition}\"'
     'description': 'Vuejs binding for if conditional rendering'
     'descriptionMoreURL': 'https://vuejs.org/v2/guide/conditional.html#v-if'
+
   'v-show':
     'prefix': 'v-show'
     'body': 'v-show=\"${1:condition}\"'
     'description': 'Vuejs binding for show conditional rendering'
     'descriptionMoreURL': 'https://vuejs.org/v2/guide/conditional.html#v-show'
+
   'v-else-if':
     'prefix': 'v-else-if'
     'body': 'v-else-if=\"${1:condition}\"'
     'description': 'Vuejs binding for else-if conditional rendering'
     'descriptionMoreURL': 'https://vuejs.org/v2/guide/conditional.html#v-else-if'
+
   'v-else':
     'prefix': 'v-else'
     'body': 'v-else'
     'description': 'Vuejs binding for else conditional rendering'
     'descriptionMoreURL': 'https://vuejs.org/v2/guide/conditional.html#v-else'
+
   'v-model':
     'prefix': 'v-model'
     'body': 'v-model=\"${1:model}\"'
     'description': 'Vuejs binding for model binding'
     'descriptionMoreURL': 'https://vuejs.org/v2/guide/forms.html'
+
   'v-bind':
     'prefix': 'v-bind'
     'body': ':${1:attribute}=\"${2}\"'
@@ -77,208 +70,155 @@
   'Vue computed':
     'prefix': 'vcomputed'
     'body': """
-    computed: {
-      ${1:computedProperty}: function ${1:computedProperty}() {
-        return ${2:something}
-      }
-    }
+      computed: {
+        ${1:computedProperty}() {
+          return ${2:something}
+        },$3
+      },
     """
     'description': 'Vuejs computed property'
     'descriptionMoreURL': 'https://vuejs.org/v2/guide/computed.html'
+
   'beforeCreate Vuejs hook':
-    'prefix': 'beforeCreate'
+    'prefix': 'vbeforecreate'
     'body': """
-    beforeCreate: function beforeCreate() {
-      //do something before creating vue instance
-      $1
-    }
+      beforeCreate() {
+        //do something before creating vue instance
+        $1
+      },$2
     """
     'description': 'Vuejs instance lifecycle hook for beforeCreate'
     'descriptionMoreURL': 'https://vuejs.org/v2/guide/instance.html#Lifecycle-Diagram'
+
   'created Vuejs hook':
-    'prefix': 'created'
+    'prefix': 'vcreated'
     'body': """
-    created: function created() {
-      //do something after creating vue instance
-      $1
-    }
+      created() {
+        //do something after creating vue instance
+        $1
+      },$2
     """
     'description': 'Vuejs instance lifecycle hook for created'
     'descriptionMoreURL': 'https://vuejs.org/v2/guide/instance.html#Lifecycle-Diagram'
+
   'beforeMount Vuejs hook':
-    'prefix': 'beforeMount'
+    'prefix': 'vbeforemount'
     'body': """
-    beforeMount: function beforeMount() {
-      //do something before mounting vue instance
-      $1
-    }
+      beforeMount() {
+        //do something before mounting vue instance
+        $1
+      },$2
     """
     'description': 'Vuejs instance lifecycle hook for beforeMount'
     'descriptionMoreURL': 'https://vuejs.org/v2/guide/instance.html#Lifecycle-Diagram'
+
   'mounted Vuejs hook':
-    'prefix': 'mounted'
+    'prefix': 'vmounted'
     'body': """
-    mounted: function mounted() {
-      //do something after mounting vue instance
-      $1
-    }
+      mounted() {
+        //do something after mounting vue instance
+        $1
+      },$2
     """
     'description': 'Vuejs instance lifecycle hook for mounted'
     'descriptionMoreURL': 'https://vuejs.org/v2/guide/instance.html#Lifecycle-Diagram'
+
   'beforeUpdate Vuejs hook':
-    'prefix': 'beforeUpdate'
+    'prefix': 'vbeforeupdate'
     'body': """
-    beforeUpdate: function beforeUpdate() {
-      //do something before updating vue instance
-      $1
-    }
+      beforeUpdate() {
+        //do something before updating vue instance
+        $1
+      },$2
     """
     'description': 'Vuejs instance lifecycle hook for beforeUpdate'
     'descriptionMoreURL': 'https://vuejs.org/v2/guide/instance.html#Lifecycle-Diagram'
+
   'updated Vuejs hook':
-    'prefix': 'updated'
+    'prefix': 'vupdated'
     'body': """
-    updated: function updated() {
-      //do something after updating vue instance
-      $1
-    }
+      updated() {
+        //do something after updating vue instance
+        $1
+      },$2
     """
     'description': 'Vuejs instance lifecycle hook for updated'
     'descriptionMoreURL': 'https://vuejs.org/v2/guide/instance.html#Lifecycle-Diagram'
+
   'beforeDestroy Vuejs hook':
-    'prefix': 'beforeDestroy'
+    'prefix': 'vbeforedestroy'
     'body': """
-    beforeDestroy: function beforeDestroy() {
-      //do something before destroying vue instance
-      $1
-    }
+      beforeDestroy() {
+        //do something before destroying vue instance
+        $1
+      },$2
     """
     'description': 'Vuejs instance lifecycle hook for beforeDestroy'
     'descriptionMoreURL': 'https://vuejs.org/v2/guide/instance.html#Lifecycle-Diagram'
+
   'destroyed Vuejs hook':
-    'prefix': 'destroyed'
+    'prefix': 'vdestroyed'
     'body': """
-    destroyed: function destroyed() {
-      //do something after destroying vue instance
-      $1
-    }
+      destroyed() {
+        //do something after destroying vue instance
+        $1
+      },$2
     """
     'description': 'Vuejs instance lifecycle hook for destroyed'
     'descriptionMoreURL': 'https://vuejs.org/v2/guide/instance.html#Lifecycle-Diagram'
+
   'Vue watch':
     'prefix': 'vwatch'
     'body': """
-    watch: {
-      ${1:propertyToWatch}: function ${1:propertyToWatch}Watcher() {
-        //do something when ${1:propertyToWatch} value changes
-        $2
-      }
-    }
+      watch: {
+        ${1:propertyToWatch}() {
+          $2
+        },$3
+      },
     """
     'description': 'Vuejs way to watch instance properties'
     'descriptionMoreURL': 'https://vuejs.org/v2/guide/computed.html#Watchers'
+
   'Vuejs methods':
-    'prefix': 'methods'
+    'prefix': 'vmethods'
     'body': """
-    methods: {
-      ${1:methodName}: function ${1:methodName}() {
-        $2
-      }
-    }
+      methods: {
+        ${1:methodName}() {
+          $2
+        },$3
+      },$4
     """
     'description': 'Vuejs methods event handlers'
     'descriptionMoreURL': 'https://vuejs.org/v2/guide/events.html#Method-Event-Handlers'
+
   'Vuejs components include':
-    'prefix': 'components'
+    'prefix': 'vcomponents'
     'body': """
-    components: {
-      ${1:componentName}
-    }
+      components: {
+        ${1:componentName},$2
+      },
     """
     'description': 'Use it when you want to add child components to parent component.'
     'descriptionMoreURL': 'https://vuejs.org/v2/guide/single-file-components.html'
+
   'Vuejs props':
-    'prefix': 'props'
-    'body': 'props: [\'${1:propName}\']'
-    'description': 'Vuejs way to pass data to child components'
-    'descriptionMoreURL': 'https://vuejs.org/v2/guide/components.html#Props'
-  'Vuejs props with validation':
     'prefix': 'vprops'
     'body': """
-    props: {
-      \'${1:propName}\': {
-        type: ${2:propType},
-        required: ${3:true},
-        default: function() {
-          return \'${4:propDefault}\';
+      props: {
+        ${1:propKey}: ${2:propType},$3
+      },$4
+    """
+    'description': 'Vuejs way to pass data to child components'
+    'descriptionMoreURL': 'https://vuejs.org/v2/guide/components.html#Props'
+
+  'Vuejs data':
+    'prefix': 'vdata'
+    'body': """
+      data() {
+        return {
+          ${1:stateKey}: ${2:stateValue},$3
         }
-      }
-    }
+      },
     """
-    'description': 'Vuejs way to pass data to child components with validation'
-    'descriptionMoreURL': 'https://vuejs.org/v2/guide/components.html#Prop-Validation'
-
-'.source.js.jsx':
-  'Store template':
-    'prefix': 'vstore'
-    'body': """
-    //Imports on top
-
-    const state = {
-      // Initial state of ${1:your store}
-
-    };
-
-    const getters = {
-      // Getters to access ${1:your store} values
-
-    };
-
-    const actions = {
-      // Asynchronous mutations commits to modify ${1:your store}
-
-    }
-
-    const mutations = {
-      // Synchronous modifications of ${1: your store}
-    }
-
-    export default {
-      state,
-      getters,
-      actions,
-      mutations
-    }
-    """
-    'description': 'Vuex template for a complete store to be imported as a module or as a single file store.'
-    'descriptionMoreURL': 'https://vuex.vuejs.org/en/structure.html'
-  'Mutation template':
-    'prefix': 'vmut'
-    'body': """
-    [${1:mutation_type}] (state, $2) {
-      $3
-    }
-    """
-    'description': 'Vuex snippet for mutations.'
-    'descriptionMoreURL': 'https://vuex.vuejs.org/en/mutations.html'
-  'Action template':
-    'prefix': 'vact'
-    'body': """
-    ${1:action_name}({
-      commit,
-      state
-    }, $2) {
-        // Asynchronous stuff here.
-        $3
-      }
-    """
-    'description': 'Vuex snippet for actions.'
-    'descriptionMoreURL': 'https://vuex.vuejs.org/en/actions.html'
-  'Getter template':
-    'prefix': 'vget'
-    'body': '${1:variable}: () => state.${1:variable}'
-    'description': 'Vuex snippet for getters.'
-    'descriptionMoreURL': 'https://vuex.vuejs.org/en/getters.html'
-  'Mutation type':
-    'prefix': 'vtype'
-    'body': 'export const ${1:MUTATION_TYPE} = \'${1:MUTATION_TYPE}\''
+    'description': 'Vuejs way of state'
+    'descriptionMoreURL': 'https://vuejs.org/v2/guide/components.html#data-Must-Be-a-Function'

@@ -1,11 +1,11 @@
 {
-  "name": "vuejs2-snippets",
-  "version": "0.8.4",
-  "description": "Vuejs 2.0+ snippets for Atom",
+  "name": "atom-vue-snippets",
+  "version": "0.0.1",
+  "description": "Vue snippets for Atom",
   "author": {
-    "name": "Corentin Andre",
-    "email": "candre@edu.ece.fr",
-    "url": "https://github.com/CorentinAndre"
+    "name": "jelly",
+    "email": "zhengguang1211@gmail.com",
+    "url": "https://github.com/zhiquan-yu"
   },
   "keywords": [
     "Vuejs",
@@ -13,7 +13,7 @@
     "Vuejs 2.0",
     "Vue"
   ],
-  "repository": "https://github.com/CorentinAndre/Vuejs-snippets",
+  "repository": "https://github.com/zhiquan-yu/atom-vue-snippets",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0"

@@ -193,6 +193,18 @@
     'description': 'Use it when you want to add child components to parent component.'
     'descriptionMoreURL': 'https://vuejs.org/v2/guide/single-file-components.html'
 
+  'Vuejs extends':
+    'prefix': 'vextends'
+    'body': """
+      extends: ${1:mixin},$2
+    """
+
+  'Vuejs mixins':
+    'prefix': 'vmixins'
+    'body': """
+      mixins: [${1:mixin}],$2
+    """
+
   'Vuejs props':
     'prefix': 'vprops'
     'body': """
